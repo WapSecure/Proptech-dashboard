@@ -32,12 +32,11 @@ const Sidebar = () => {
   const handleNonDashboardClick = (e: React.MouseEvent, href: string) => {
     if (href !== '/dashboard') {
       e.preventDefault();
-
     }
   };
 
   return (
-    <nav className="flex justify-between py-4">
+    <nav className="flex flex-wrap md:flex-nowrap justify-center md:justify-between py-4 gap-2 md:gap-0">
       {navItems.map((item) => {
         const isActive = pathname === item.href;
         const Icon = item.icon;
@@ -48,8 +47,8 @@ const Sidebar = () => {
             href={item.href as any}
             onClick={(e) => handleNonDashboardClick(e, item.href)}
             className={`
-              group w-[170px] h-[38px] flex items-center justify-center gap-2 rounded-md
-              transition-all duration-200 cursor-pointer
+              group w-full sm:w-[150px] md:w-[170px] h-[38px] flex items-center justify-center gap-2 rounded-md
+              transition-all duration-200 cursor-pointer flex-shrink-0
               ${
                 isActive
                   ? 'bg-primary-50 text-primary-500'

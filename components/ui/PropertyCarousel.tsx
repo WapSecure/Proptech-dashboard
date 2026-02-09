@@ -42,11 +42,11 @@ const PropertyCarousel = () => {
 
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {slides.map((slide, carouselIndex) => (
           <div
             key={slide.id}
-            className="relative h-56 rounded-xl overflow-hidden"
+            className="relative h-48 md:h-56 rounded-xl overflow-hidden"
           >
             <div className="absolute inset-0">
               <div className="relative w-full h-full bg-gradient-to-br from-neutral-800 to-neutral-900">
@@ -65,15 +65,15 @@ const PropertyCarousel = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             </div>
 
-            <div className="relative z-10 h-full flex flex-col justify-end p-6">
+            <div className="relative z-10 h-full flex flex-col justify-end p-4 md:p-6">
               <div className="text-white">
                 <p className="text-xs uppercase tracking-wider text-neutral-300">
                   {slide.label}
                 </p>
-                <p className="font-semibold text-lg mt-1">{slide.title}</p>
+                <p className="font-semibold text-base md:text-lg mt-1">{slide.title}</p>
               </div>
 
-              <div className="flex gap-1 mt-4">
+              <div className="flex gap-1 mt-3 md:mt-4">
                 {[0, 1, 2, 3, 4].map((dotIndex) => (
                   <button
                     key={dotIndex}

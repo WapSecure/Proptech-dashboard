@@ -11,23 +11,23 @@ export default function DashboardPage() {
   const [selectedRange, setSelectedRange] = useState<TimeRange>('month');
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 md:space-y-6">
       <div>
-        <h1 className="text-2xl font-semibold text-neutral-900">
-          Welcome, Ahmed
+        <h1 className="text-xl md:text-2xl font-semibold text-neutral-900">
+          Welcome, Dylan
         </h1>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 h-full">
+      <div className="flex flex-col lg:flex-row gap-6 md:gap-8">
+        <div className="flex-1 lg:flex-[2] h-full">
           <SalesOverview 
             selectedRange={selectedRange}
             onRangeChange={setSelectedRange}
           />
         </div>
 
-        <div className="lg:col-span-1 h-full">
-          <div className="grid grid-rows-2 gap-6 h-full">
+        <div className="flex-1 lg:flex-[1] h-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6 h-full">
             <div className="h-full">
               <ListingsOverview />
             </div>

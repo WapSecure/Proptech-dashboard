@@ -33,7 +33,7 @@ const SalesOverviewPresenter: React.FC<SalesOverviewPresenterProps> = ({
   return (
     <Card className="border border-neutral-200 h-full">
       <div className="space-y-4">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <h3 className="font-medium text-neutral-900">Sales Overview</h3>
             <p className="text-xs text-[#606060] mt-0.5">
@@ -45,12 +45,13 @@ const SalesOverviewPresenter: React.FC<SalesOverviewPresenterProps> = ({
             px-4 py-1.5 text-sm font-medium text-[#191919] 
             bg-white border border-[#D6D6D6] rounded-full
             hover:bg-neutral-50 transition-colors whitespace-nowrap
+            w-full sm:w-auto
           ">
             View Transactions
           </button>
         </div>
 
-        <div className="flex items-center justify-end">
+        <div className="flex items-center justify-end overflow-x-auto">
           <div className="flex items-center gap-2">
             {timeRanges.map((range) => (
               <button
@@ -58,7 +59,7 @@ const SalesOverviewPresenter: React.FC<SalesOverviewPresenterProps> = ({
                 onClick={() => onRangeChange(range.value)}
                 className={`
                   px-3 py-1.5 rounded-full text-sm font-medium border
-                  transition-colors whitespace-nowrap
+                  transition-colors whitespace-nowrap flex-shrink-0
                   ${selectedRange === range.value
                     ? 'bg-neutral-100 text-neutral-800 border-neutral-300'
                     : 'text-neutral-500 border-transparent hover:text-neutral-800 hover:bg-neutral-50'
@@ -72,12 +73,12 @@ const SalesOverviewPresenter: React.FC<SalesOverviewPresenterProps> = ({
         </div>
 
         <div className="border-t border-neutral-200 pt-6">
-          <div className="flex flex-row items-stretch gap-8">
+          <div className="flex flex-col lg:flex-row items-stretch gap-6 lg:gap-8">
             <div className="flex-1">
               <SalesChart />
             </div>
 
-            <div className="flex items-center justify-center">
+            <div className="hidden lg:flex items-center justify-center">
               <div className="h-full w-px bg-neutral-200 relative">
                 <div
                   className="
@@ -92,7 +93,7 @@ const SalesOverviewPresenter: React.FC<SalesOverviewPresenterProps> = ({
             </div>
 
             <div className="flex-1">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {Object.entries(metrics).map(([key, metric]) => {
                   const config = metricConfigs[key as keyof typeof metricConfigs];
                   const isPositive = metric.trend === 'up';

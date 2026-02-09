@@ -27,8 +27,7 @@ const CalendarModal: React.FC<CalendarModalProps> = ({ isOpen, onClose }) => {
     <div className="fixed inset-0 z-50 flex justify-end">
       <div className="absolute inset-0 bg-black/60" onClick={onClose} />
       
-      <div className="relative w-[360px] h-full bg-neutral-900 text-white">
-        {/* Header */}
+      <div className="relative w-full md:w-[360px] h-full bg-neutral-900 text-white">
         <div className="p-4 border-b border-neutral-800">
           <div className="flex items-center gap-4 mb-6">
             <button onClick={onClose} className="p-1">
@@ -40,7 +39,6 @@ const CalendarModal: React.FC<CalendarModalProps> = ({ isOpen, onClose }) => {
             </button>
           </div>
 
-          {/* Month Navigation */}
           <div className="flex items-center justify-between mb-4">
             <button className="p-2 hover:bg-neutral-800 rounded-md transition-colors">
               <LeftArrowIcon className="w-5 h-5" />
@@ -52,9 +50,7 @@ const CalendarModal: React.FC<CalendarModalProps> = ({ isOpen, onClose }) => {
           </div>
         </div>
 
-        {/* Calendar Grid */}
         <div className="p-4">
-          {/* Days of Week */}
           <div className="grid grid-cols-7 gap-1 mb-2">
             {daysOfWeek.map((day) => (
               <div
@@ -66,10 +62,9 @@ const CalendarModal: React.FC<CalendarModalProps> = ({ isOpen, onClose }) => {
             ))}
           </div>
 
-          {/* Dates */}
           <div className="grid grid-cols-7 gap-1">
             {Array.from({ length: startDay }).map((_, index) => (
-              <div key={`empty-${index}`} className="h-12" />
+              <div key={`empty-${index}`} className="h-10 md:h-12" />
             ))}
 
             {Array.from({ length: totalDays }).map((_, index) => {
@@ -81,15 +76,15 @@ const CalendarModal: React.FC<CalendarModalProps> = ({ isOpen, onClose }) => {
                   key={day}
                   onClick={() => setSelectedDate(day)}
                   className={`
-                    h-12 flex items-start justify-start p-2 rounded
-                    transition-colors
+                    h-10 md:h-12 flex items-start justify-start p-2 rounded
+                    transition-colors text-sm md:text-base
                     ${isSelected
                       ? 'bg-blue-600 text-white'
                       : 'hover:bg-neutral-800'
                     }
                   `}
                 >
-                  <span className="text-sm">
+                  <span>
                     {day === 1 ? `Dec ${day}` : day}
                   </span>
                 </button>

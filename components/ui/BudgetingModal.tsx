@@ -39,33 +39,31 @@ const BudgetingModal: React.FC<BudgetingModalProps> = ({ isOpen, onClose }) => {
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/50" onClick={onClose} />
       
-      <div className="relative bg-white rounded-lg w-[500px] overflow-hidden">
-        {/* Header */}
-        <div className="p-8 text-center">
+      <div className="relative bg-white rounded-lg w-full max-w-[500px] max-h-[90vh] overflow-y-auto">
+        <div className="p-6 md:p-8 text-center">
           <div className="text-4xl mb-4">💰</div>
-          <h2 className="text-2xl font-semibold text-neutral-900 mb-2">
+          <h2 className="text-xl md:text-2xl font-semibold text-neutral-900 mb-2">
             Budgeting
           </h2>
         </div>
 
-        {/* Features List */}
-        <div className="px-8 pb-8 space-y-6">
+        <div className="px-4 md:px-8 pb-6 md:pb-8 space-y-4 md:space-y-6">
           {features.map((feature, index) => {
             const Icon = feature.icon;
 
             return (
-              <div key={index} className="flex items-start gap-4">
-                <div className="mt-1">
-                  <Icon className="w-6 h-6 text-neutral-700" />
+              <div key={index} className="flex items-start gap-3 md:gap-4">
+                <div className="mt-1 flex-shrink-0">
+                  <Icon className="w-5 h-5 md:w-6 md:h-6 text-neutral-700" />
                 </div>
-                <div>
-                  <h3 className="font-medium text-neutral-900 mb-1">
+                <div className="flex-1">
+                  <h3 className="font-medium text-neutral-900 text-sm md:text-base mb-1">
                     {feature.title}
                   </h3>
-                  <p className="text-sm text-neutral-600">
+                  <p className="text-xs md:text-sm text-neutral-600">
                     {feature.description}
                   </p>
                 </div>
@@ -74,11 +72,10 @@ const BudgetingModal: React.FC<BudgetingModalProps> = ({ isOpen, onClose }) => {
           })}
         </div>
 
-        {/* Action Button */}
-        <div className="px-8 pb-8">
+        <div className="px-4 md:px-8 pb-6 md:pb-8">
           <button
             onClick={onClose}
-            className="w-full bg-neutral-900 text-white py-3 rounded-full font-medium hover:bg-neutral-800 transition-colors"
+            className="w-full bg-neutral-900 text-white py-3 rounded-full font-medium hover:bg-neutral-800 transition-colors text-sm md:text-base"
           >
             Create Budget
           </button>

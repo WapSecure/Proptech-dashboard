@@ -20,23 +20,24 @@ const Header = () => {
 
   return (
     <>
-      <header className="h-16 bg-primary-900 text-white flex items-center px-28">
+      <header className="h-16 bg-primary-900 text-white flex items-center px-4 md:px-8 lg:px-28">
         <div className="flex items-center gap-2 font-semibold text-lg">
-<ExpertLogoIcon />
+          <ExpertLogoIcon />
         </div>
 
         <div className="ml-auto flex items-center gap-2">
-          <Tooltip content="Budgeting">
-            <button
-              onClick={() => setIsBudgetingModalOpen(true)}
-              className="p-2 hover:bg-primary-800 rounded-md transition-colors"
-              aria-label="Budgeting"
-            >
-              <BudgetingIcon />
-            </button>
-          </Tooltip>
+          <div className="hidden sm:flex items-center gap-2">
+            <Tooltip content="Budgeting">
+              <button
+                onClick={() => setIsBudgetingModalOpen(true)}
+                className="p-2 hover:bg-primary-800 rounded-md transition-colors"
+                aria-label="Budgeting"
+              >
+                <BudgetingIcon />
+              </button>
+            </Tooltip>
 
-          <Tooltip content="Calendar">
+            <Tooltip content="Calendar">
             <button
               onClick={() => setIsCalendarModalOpen(true)}
               className="p-2 hover:bg-primary-800 rounded-md transition-colors"
@@ -46,32 +47,35 @@ const Header = () => {
             </button>
           </Tooltip>
 
-          <Tooltip content="Search Activity">
-            <button
-              className="p-2 hover:bg-primary-800 rounded-md transition-colors"
-              aria-label="Search Activity"
-            >
-              <ActivityLogIcon />
-            </button>
-          </Tooltip>
+            <Tooltip content="Search Activity">
+              <button
+                className="p-2 hover:bg-primary-800 rounded-md transition-colors"
+                aria-label="Search Activity"
+              >
+                <ActivityLogIcon />
+              </button>
+            </Tooltip>
 
-          <Tooltip content="Payout Center">
-            <button
-              className="p-2 hover:bg-primary-800 rounded-md transition-colors"
-              aria-label="Payout Center"
-            >
-              <PayoutIcon />
-            </button>
-          </Tooltip>
+            <Tooltip content="Payout Center">
+              <button
+                className="p-2 hover:bg-primary-800 rounded-md transition-colors"
+                aria-label="Payout Center"
+              >
+                <PayoutIcon />
+              </button>
+            </Tooltip>
 
-          <Tooltip content="Marketplace">
-            <button
-              className="p-2 hover:bg-primary-800 rounded-md transition-colors"
-              aria-label="Marketplace"
-            >
-              <MarketPlaceIcon />
-            </button>
-          </Tooltip>
+            <Tooltip content="Marketplace">
+              <button
+                className="p-2 hover:bg-primary-800 rounded-md transition-colors"
+                aria-label="Marketplace"
+              >
+                <MarketPlaceIcon />
+              </button>
+            </Tooltip>
+          </div>
+
+
 
           <UserMenu />
         </div>

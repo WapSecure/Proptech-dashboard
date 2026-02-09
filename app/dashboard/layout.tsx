@@ -12,11 +12,11 @@ export default function DashboardLayout({
       <div className="flex min-h-screen">
         <div className="flex-1">
           <div className="bg-white border-b border-neutral-200">
-            <div className="max-w-[1440px] mx-auto px-[78px]">
+            <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-[78px]">
               <Sidebar />
             </div>
           </div>
-          <div className="max-w-[1440px] mx-auto px-[78px] py-6">
+          <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-[78px] py-4 md:py-6">
             {children}
           </div>
         </div>
